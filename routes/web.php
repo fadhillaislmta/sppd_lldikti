@@ -5,6 +5,10 @@ use Illuminate\Support\Facades\Auth;
 use App\Http\Controllers\HomeController;
 use App\Http\Controllers\KaryawanController;
 use App\Http\Controllers\UserController;
+use App\Http\Controllers\LokasiController;
+use App\Http\Controllers\TransportasiController;
+use App\Http\Controllers\PenginapanController;
+
 /*
 |--------------------------------------------------------------------------
 | Web Routes
@@ -35,3 +39,30 @@ Route::post('/karyawan/update/{id}', [KaryawanController::class, 'update']);
 
 //user
 Route::get('/user', [UserController::class, 'index'])->name('user');
+
+//lokasi
+Route::get('/lokasi', [LokasiController::class, 'index'])->name('lokasi');
+Route::get('/lokasi/create', [LokasiController::class, 'create']);
+Route::get('/lokasi/add', [LokasiController::class, 'add']);
+Route::post('/lokasi/insert', [LokasiController::class, 'insert']);
+Route::get('/lokasi/{id}/delete', [LokasiController::class, 'destroy'])->name('lokasi.destroy');
+Route::get('/lokasi/edit/{id}', [LokasiController::class, 'edit']);
+Route::post('/lokasi/update/{id}', [LokasiController::class, 'update']);
+
+//transportasi
+Route::get('/transportasi', [TransportasiController::class, 'index'])->name('transportasi');
+Route::get('/transportasi/create', [TransportasiController::class, 'create']);
+Route::get('/transportasi/add', [TransportasiController::class, 'add']);
+Route::post('/transportasi/insert', [TransportasiController::class, 'insert']);
+Route::get('/transportasi/{id}/delete', [TransportasiController::class, 'destroy'])->name('transportasi.destroy');
+Route::get('/transportasi/edit/{id}', [TransportasiController::class, 'edit']);
+Route::post('/transportasi/update/{id}', [TransportasiController::class, 'update']);
+
+//penginapan
+Route::get('/penginapan', [PenginapanController::class, 'index'])->name('penginapan');
+Route::get('/penginapan/create', [PenginapanController::class, 'create']);
+Route::get('/penginapan/add', [PenginapanController::class, 'add']);
+Route::post('/penginapan/insert', [PenginapanController::class, 'insert']);
+Route::get('/penginapan/{id}/delete', [PenginapanController::class, 'destroy'])->name('penginapan.destroy');
+Route::get('/penginapan/edit/{id}', [PenginapanController::class, 'edit']);
+Route::post('/penginapan/update/{id}', [PenginapanController::class, 'update']);
