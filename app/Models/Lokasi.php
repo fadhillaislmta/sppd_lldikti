@@ -9,6 +9,9 @@ use Illuminate\Support\Facades\DB;
 class Lokasi extends Model
 {
     protected $table = 'lokasi';
+    public function pusat(){
+        return $this->hasMany(pusat::class,'id', 'id'); }
+        
         
     public function allData()
     {

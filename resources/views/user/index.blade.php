@@ -5,7 +5,7 @@
  <!-- Page Heading -->
  <h1 class="h3 mb-4 text-gray-800">{{ $title ?? __('Data User') }}</h1>
 
- <a href=" " class="btn btn-primary mb-3">Tambah User</a>
+ <a href="/user/add" class="btn btn-primary mb-3">Tambah User</a>
     
     @if (session('message'))
         <div class="alert alert-success">
@@ -32,8 +32,8 @@
                     <td>{{ $us->role_user}}</td>   
                     <td>
                         <div class="d-flex">
-                            <a href="" class="btn btn-sm btn-primary mr-2">Edit</a>
-                            <a href="" display="inline" class="btn btn-danger" onclick="return confirm('Yakin ingin menghapus?');">Hapus</a>
+                            <a href="/user/edit/{{ $us->id }}" class="btn btn-sm btn-primary mr-2">Edit</a>
+                            <a href="{{Route('user.destroy',[$us->id])}}" display="inline" class="btn btn-danger" onclick="return confirm('Yakin ingin menghapus?');">Hapus</a>
                             <!-- <form action="{{Route('karyawan.destroy',[$us->id])}}" method="post">
                                 @csrf
                                 @method('delete')

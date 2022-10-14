@@ -18,6 +18,15 @@
                 {{ $message }}
                 @enderror
             </div>
+
+            <div class="form-group">
+            <label>Besaran Lumpsum</label>
+            <input name="besaran_lumpsum" class="form-control" value="{{ $lokasi->besaran_lumpsum }}">
+            <div class="text-danger">
+                @error('besaran_lumpsum')
+                {{ $message }}
+                @enderror
+            </div>
             
         
         <div class="form-group">

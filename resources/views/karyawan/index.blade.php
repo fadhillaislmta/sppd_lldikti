@@ -20,7 +20,7 @@
                 <th>Nama</th>
                 <th>NIP</th>
                 <th>Jabatan</th>
-                <th>Pangkat</th>
+                <th>Golongan</th>
                 <th>Divisi</th>
                 <th>Aksi</th>
             </tr>
@@ -32,7 +32,7 @@
                     <td>{{ $kw->nama}}</td>
                     <td>{{ $kw->nip}}</td>
                     <td>{{ $kw->jabatan}}</td>
-                    <td>{{ $kw->pangkat}}</td>
+                    <td>{{ $kw->golongan}}</td>
                     <td>{{ $kw->divisi}}</td>    
                     <td>
                         <div class="d-flex">

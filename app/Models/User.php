@@ -19,7 +19,8 @@ class User extends Authenticatable
      *
      * @var array<int, string>
      */
-    protected $fillable = [
+    protected $table = 'users';
+     protected $fillable = [
         'role_user',
         'karyawan_id',
         'email',
@@ -49,13 +50,20 @@ class User extends Authenticatable
     {
        return DB::table('users')
        ->select('users.id', 'karyawan.nama', 'users.email', 'users.role_user')
-        ->leftJoin('karyawan', 'karyawan.id', '=' , 'users.karyawan_id')
+        ->Join('karyawan', 'karyawan.id', '=' , 'users.karyawan_id')
        ->get();
          
+    }
+
+    public function addData($data)
+    {
+        DB::table('users')->insert($data);
     }
 
     public function karyawan(){
         return $this->belongsTo('App\Karyawan');
     }
+
+    
     
 }

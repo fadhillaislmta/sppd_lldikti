@@ -56,8 +56,8 @@
     <div id="collapseOne" class="collapse" aria-labelledby="headingPages" data-parent="#accordionSidebar">
         <div class="bg-white py-2 collapse-inner rounded">
             <!-- <h6 class="collapse-header">Custom Components:</h6> -->
-            <a class="collapse-item" href="buttons.html">Undangan</a>
-            <a class="collapse-item" href="cards.html">Daftar Tim</a>
+            <a class="collapse-item" href="/pusat">Pusat</a>
+            <a class="collapse-item" href="cards.html">Kantor</a>
         </div>
     </div>
 </li>
@@ -79,8 +79,8 @@
     <div id="collapsePages" class="collapse" aria-labelledby="headingPages" data-parent="#accordionSidebar">
         <div class="bg-white py-2 collapse-inner rounded">
             <!-- <h6 class="collapse-header">Custom Components:</h6> -->
-            <a class="collapse-item" href="buttons.html">Undangan</a>
-            <a class="collapse-item" href="cards.html">Daftar Tim</a>
+            <a class="collapse-item" href="buttons.html">Pusat</a>
+            <a class="collapse-item" href="cards.html">Kantor</a>
         </div>
     </div>
 </li>
@@ -96,8 +96,8 @@
         data-parent="#accordionSidebar">
         <div class="bg-white py-2 collapse-inner rounded">
             <!-- <h6 class="collapse-header">Custom Utilities:</h6> -->
-            <a class="collapse-item" href="utilities-color.html">Undangan</a>
-            <a class="collapse-item" href="utilities-border.html">Daftar Tim</a>
+            <a class="collapse-item" href="utilities-color.html">Pusat</a>
+            <a class="collapse-item" href="utilities-border.html">Kantor</a>
             <!-- <a class="collapse-item" href="utilities-animation.html">Animations</a>
             <a class="collapse-item" href="utilities-other.html">Other</a> -->
         </div>

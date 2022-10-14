@@ -16,6 +16,7 @@ class CreateLokasiTable extends Migration
         Schema::create('lokasi', function (Blueprint $table) {
             $table->id();
             $table->string('nama_kota');
+            $table->integer('besaran_lumpsum');
             $table->timestamps();
         });
     }

@@ -42,10 +42,10 @@
         </div>
 
         <div class="form-group">
-            <label>Pangkat</label>
-            <input name='pangkat' class="form-control" value="{{ old('pangkat') }}">
+            <label>Golongan</label>
+            <input name='golongan' class="form-control" value="{{ old('golongan') }}">
             <div class="text-danger">
-                @error('pangkat')
+                @error('golongan')
                 {{ $message }}
                 @enderror
             </div>

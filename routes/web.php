@@ -8,6 +8,7 @@ use App\Http\Controllers\UserController;
 use App\Http\Controllers\LokasiController;
 use App\Http\Controllers\TransportasiController;
 use App\Http\Controllers\PenginapanController;
+use App\Http\Controllers\PusatController;
 
 /*
 |--------------------------------------------------------------------------
@@ -39,6 +40,11 @@ Route::post('/karyawan/update/{id}', [KaryawanController::class, 'update']);
 
 //user
 Route::get('/user', [UserController::class, 'index'])->name('user');
+Route::get('/user/add', [UserController::class, 'add']);
+Route::post('/user/insert', [UserController::class, 'insert']);
+Route::get('/user/{id}/delete', [UserController::class, 'destroy'])->name('user.destroy');
+Route::get('/user/edit/{id}', [UserController::class, 'edit']);
+Route::post('/user/update/{id}', [UserController::class, 'update']);
 
 //lokasi
 Route::get('/lokasi', [LokasiController::class, 'index'])->name('lokasi');
@@ -66,3 +72,12 @@ Route::post('/penginapan/insert', [PenginapanController::class, 'insert']);
 Route::get('/penginapan/{id}/delete', [PenginapanController::class, 'destroy'])->name('penginapan.destroy');
 Route::get('/penginapan/edit/{id}', [PenginapanController::class, 'edit']);
 Route::post('/penginapan/update/{id}', [PenginapanController::class, 'update']);
+
+// pusat
+Route::get('/pusat', [PusatController::class, 'index'])->name('pusat');
+Route::get('/pusat/create', [PusatController::class, 'create']);
+Route::get('/pusat/add', [PusatController::class, 'add']);
+Route::post('/pusat/insert', [PusatController::class, 'insert']);
+Route::get('/pusat/{id}/delete', [PusatController::class, 'destroy'])->name('pusat.destroy');
+Route::get('/pusat/edit/{id}', [PusatController::class, 'edit']);
+Route::post('/pusat/update/{id}', [PusatController::class, 'update']);

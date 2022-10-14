@@ -20,6 +20,7 @@ class KaryawanController extends Controller
             'karyawan' => $this->Karyawan->allData(),
 
         ];
+       
         return view('karyawan/index', $data);
     }
 
@@ -33,14 +34,14 @@ class KaryawanController extends Controller
         Request()->validate([
             'nip' => 'required|unique:karyawan,nip|',
             'nama' => 'required',
-            'pangkat' => 'required',
+            'golongan' => 'required',
             'jabatan' => 'required',
             'divisi' => 'required',
         ],[
             'nip.required' => 'nip harus diisi!',
             'nip.unique' => 'nip sudah ada!',
             'nama.required' => 'nama harus diisi!',
-            'pangkat.required' => 'pangkat harus diisi!',
+            'golongan.required' => 'golongan harus diisi!',
             'jabatan.required' => 'jabatan harus diisi!',
             'divisi.required' => 'divisi harus diisi!',
         ]);
@@ -48,7 +49,7 @@ class KaryawanController extends Controller
         $data = [
             'nip' => Request()->nip,
             'nama' => Request()->nama,
-            'pangkat' => Request()->pangkat,
+            'golongan' => Request()->golongan,
             'jabatan' => Request()->jabatan,
             'divisi' => Request()->divisi,
         ];
@@ -91,7 +92,7 @@ class KaryawanController extends Controller
               ->where('id', $id)
               ->update(['nip' => $request->nip,
                         'nama' => $request->nama,
-                        'pangkat' => $request->pangkat,
+                        'golongan' => $request->golongan,
                         'jabatan' => $request->jabatan,
                         'divisi' => $request->divisi]);
 

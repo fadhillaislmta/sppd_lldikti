@@ -32,12 +32,15 @@ class LokasiController extends Controller
     {
         Request()->validate([
             'nama_kota' => 'required',
+            'besaran_lumpsum' => 'required',
         ],[
             'nama_kota.required' => 'nama kota harus diisi!',
+            'besaran_lumpsum.required' => 'besaran lumpsum harus diisi!',
         ]);
 
         $data = [
             'nama_kota' => Request()->nama_kota,
+            'besaran_lumpsum' => Request()->besaran_lumpsum,
         ];
 
         $this->Lokasi->addData($data);
@@ -76,7 +79,8 @@ class LokasiController extends Controller
 
         $affected = DB::table('lokasi')
               ->where('id', $id)
-              ->update(['nama_kota' => $request->nama_kota]);
+              ->update(['nama_kota' => $request->nama_kota,
+                        'besaran_lumpsum' => $request->besaran_lumpsum]);
 
             Alert::success('Berhasil!', 'Data lokasi berhasil diupdate!');
             return redirect('/lokasi');

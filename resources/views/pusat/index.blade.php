@@ -3,9 +3,9 @@
 @section('main-content')
 
  <!-- Page Heading -->
- <h1 class="h3 mb-4 text-gray-800">{{ $title ?? __('Data Lokasi') }}</h1>
+ <h1 class="h3 mb-4 text-gray-800">{{ $title ?? __('Data Surat Undangan dari Pusat') }}</h1>
 
- <a href="/lokasi/add" class="btn btn-primary mb-3">Tambah Lokasi</a>
+ <a href="/pusat/add" class="btn btn-primary mb-3">Tambah Surat</a>
     
     @if (session('message'))
         <div class="alert alert-success">
@@ -17,23 +17,34 @@
         <thead>
             <tr>
                 <th>No</th>
-                <th>Nama Kota</th>
-                <th>Besaran Lumpsum</th>
-                
+                <th>Lokasi</th>
+                <th>User</th>
+                <th>Nomor Surat</th>
+                <th>Judul Surat</th>
+                <th>Tanggal Pergi</th>
+                <th>Tanggal Pulang</th>
+                <th>Lampiran Surat</th>
+                <th>Status</th>
+                <th>Aksi</th>
             </tr>
         </thead>
         <tbody>
-        @foreach ($lokasi as $lok)
+        @foreach ($pusat as $ps)
                 <tr>
                     <td scope="row">{{ $loop->iteration }}</td>
-                    <td>{{ $lok->nama_kota}}</td>
-                    <td>{{ $lok->besaran_lumpsum}}</td>
-   
+                    <td>{{ $ps->lokasi_id}}</td>
+                    <td>{{ $ps->users_id}}</td>
+                    <td>{{ $ps->no_surat}}</td>
+                    <td>{{ $ps->judul_surat}}</td>
+                    <td>{{ $ps->tanggal_pergi}}</td>    
+                    <td>{{ $ps->tanggal_pulang}}</td>
+                    <td>{{ $ps->lampiran_undangan}}</td>
+                    <!-- <td>{{ $ps->status}}</td>  -->
                     <td>
                         <div class="d-flex">
-                            <a href="/lokasi/edit/{{ $lok->id }}" class="btn btn-sm btn-primary mr-2">Edit</a>
-                            <a href="{{Route('lokasi.destroy',[$lok->id])}}" display="inline" class="btn btn-danger" onclick="return confirm('Yakin ingin menghapus?');">Hapus</a>
-                            <!-- <form action="{{Route('lokasi.destroy',[$lok->id])}}" method="post">
+                            <a href="/pusat/edit/{{ $ps->id }}" class="btn btn-sm btn-primary mr-2">Edit</a>
+                            <a href="{{Route('pusat.destroy',[$ps->id])}}" display="inline" class="btn btn-danger" onclick="return confirm('Yakin ingin menghapus?');">Hapus</a>
+                            <!-- <form action="{{Route('pusat.destroy',[$ps->id])}}" method="post">
                                 @csrf
                                 @method('delete')
                                 <button type="submit" class="btn btn-sm btn-danger show_confirm" data-toggle="tooltip" title='Delete'>Hapus</button> -->
