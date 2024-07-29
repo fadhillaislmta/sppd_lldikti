@@ -17,9 +17,9 @@ class CreateKeuanganTable extends Migration
             $table->id();
             $table->bigInteger('users_id')->unsigned()->index();
             $table->foreign('users_id')->references('id')->on('users')->onDelete('cascade');
-            $table->bigInteger('pusat_id')->unsigned()->index();
-            $table->foreign('pusat_id')->references('id')->on('pusat')->onDelete('cascade');
-            $table->bigInteger('kantor_id')->unsigned()->index();
+            $table->bigInteger('disposisi_id')->nullable()->unsigned()->index();
+            $table->foreign('disposisi_id')->references('id')->on('disposisi')->onDelete('cascade');
+            $table->bigInteger('kantor_id')->nullable()->unsigned()->index();
             $table->foreign('kantor_id')->references('id')->on('kantor')->onDelete('cascade');
             $table->bigInteger('transportasi_id')->unsigned()->index();
             $table->foreign('transportasi_id')->references('id')->on('transportasi')->onDelete('cascade');
@@ -38,6 +38,6 @@ class CreateKeuanganTable extends Migration
      */
     public function down()
     {
-        Schema::dropIfExists('keupusat');
+        Schema::dropIfExists('keuangan');
     }
 }

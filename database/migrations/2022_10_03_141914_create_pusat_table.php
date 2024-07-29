@@ -24,7 +24,7 @@ class CreatePusatTable extends Migration
             $table->date('tanggal_pergi');
             $table->date('tanggal_pulang');
             $table->string('lampiran_undangan');
-            $table->string('status_disposisi');
+            $table->string('status_disposisi')->default('Pending');
             $table->timestamps();
         });
     }

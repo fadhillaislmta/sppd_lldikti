@@ -18,7 +18,6 @@
             <tr>
                 <th>No</th>
                 <th>Lokasi</th>
-                <th>User</th>
                 <th>Nomor Surat</th>
                 <th>Judul Surat</th>
                 <th>Tanggal Pergi</th>
@@ -32,14 +31,39 @@
         @foreach ($pusat as $ps)
                 <tr>
                     <td scope="row">{{ $loop->iteration }}</td>
-                    <td>{{ $ps->lokasi_id}}</td>
-                    <td>{{ $ps->users_id}}</td>
+                    <td>{{ $ps->nama_kota}}</td>
                     <td>{{ $ps->no_surat}}</td>
                     <td>{{ $ps->judul_surat}}</td>
                     <td>{{ $ps->tanggal_pergi}}</td>    
                     <td>{{ $ps->tanggal_pulang}}</td>
-                    <td>{{ $ps->lampiran_undangan}}</td>
-                    <!-- <td>{{ $ps->status}}</td>  -->
+                    <td>
+                        <a href="{{ asset('lampiran_undangan/'. $ps->lampiran_undangan )}}" target="_blank" rel="noopener noreferrer"> {{$ps->lampiran_undangan}} </a>
+                    </td>
+            @if($ps->status_disposisi =='Pending')
+              <td class="px-4 py-3 text-xs">
+                <span
+                class="badge-warning p-1 rounded-sm">
+                  {{ $ps->status_disposisi }}
+                </span>
+              </td>
+              @elseif ($ps->status_disposisi =='Terima')
+              <td class="px-4 py-3 text-xs">
+                <span
+                class="badge-success p-1 rounded-sm">
+                  {{ $ps->status_disposisi }}
+                </span>
+              </td>
+              @else ($ps->status_disposisi =='Tolak')
+              <td class="px-4 py-3 text-xs">
+                <span
+                class="badge-danger p-1 rounded-sm">
+                  {{ $ps->status_disposisi }}
+                </span>
+              </td>
+
+              @endif
+                    
+                   
                     <td>
                         <div class="d-flex">
                             <a href="/pusat/edit/{{ $ps->id }}" class="btn btn-sm btn-primary mr-2">Edit</a>

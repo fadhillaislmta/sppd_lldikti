@@ -1,7 +1,9 @@
 <?php
 
 namespace App\Http\Controllers;
-
+use App\Models\Karyawan;
+use App\Models\Pusat;
+use App\Models\Kantor;
 use Illuminate\Http\Request;
 
 class HomeController extends Controller
@@ -23,6 +25,10 @@ class HomeController extends Controller
      */
     public function index()
     {
-        return view('layout/v_template');
+        $karyawan = Karyawan::count();
+        $undangan = Pusat::select('status_disposisi')->where('status_disposisi','Pending')->count();
+        $undangann = Pusat::select('status_disposisi')->where('status_disposisi','Terima')->count();
+        $kantor = Kantor::count();
+        return view('home',compact('karyawan','undangan','undangann','kantor'));
     }
 }

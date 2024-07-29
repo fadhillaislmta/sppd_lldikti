@@ -9,6 +9,14 @@ use App\Http\Controllers\LokasiController;
 use App\Http\Controllers\TransportasiController;
 use App\Http\Controllers\PenginapanController;
 use App\Http\Controllers\PusatController;
+use App\Http\Controllers\KantorController;
+use App\Http\Controllers\DisposisiController;
+use App\Http\Controllers\SurattugaspController;
+use App\Http\Controllers\SurattugaskController;
+use App\Http\Controllers\KeuanganController;
+use App\Http\Controllers\KeuangankController;
+use App\Http\Controllers\ProfilController;
+use App\Http\Controllers\TanggapanController;
 
 /*
 |--------------------------------------------------------------------------
@@ -22,14 +30,21 @@ use App\Http\Controllers\PusatController;
 */
 
 Route::get('/', function () {
-    return view('welcome');
+    return view('/auth/login');
 });
 Route::get('/home', [HomeController::class, 'index']);
 Auth::routes();
 
 Route::get('/home', [App\Http\Controllers\HomeController::class, 'index'])->name('home');
 
-//karyawan
+// profil
+Route::get('/profil', [ProfilController::class, 'index'])->name('profil');
+Route::put('/profil', [ProfilController::class, 'update'])->name('profil.update');
+
+
+//hak akses untuk admin
+Route::group(['middleware' => 'admin'], function() {
+    //karyawan
 Route::get('/karyawan', [KaryawanController::class, 'index'])->name('karyawan');
 Route::get('/karyawan/create', [KaryawanController::class, 'create']);
 Route::get('/karyawan/add', [KaryawanController::class, 'add']);
@@ -81,3 +96,57 @@ Route::post('/pusat/insert', [PusatController::class, 'insert']);
 Route::get('/pusat/{id}/delete', [PusatController::class, 'destroy'])->name('pusat.destroy');
 Route::get('/pusat/edit/{id}', [PusatController::class, 'edit']);
 Route::post('/pusat/update/{id}', [PusatController::class, 'update']);
+
+// kantor
+Route::get('/kantor', [KantorController::class, 'index'])->name('kantor');
+Route::get('/kantor/create', [KantorController::class, 'create']);
+Route::get('/kantor/add', [KantorController::class, 'add']);
+Route::post('/kantor/insert', [KantorController::class, 'insert']);
+Route::get('/kantor/{id}/delete', [KantorController::class, 'destroy'])->name('kantor.destroy');
+Route::get('/kantor/edit/{id}', [KantorController::class, 'edit']);
+Route::post('/kantor/update/{id}', [KantorController::class, 'update']);
+
+});
+
+//hak akses untuk pimpinan
+Route::group(['middleware' => 'pimpinan'], function() {
+    // disposisi
+Route::get('/disposisi', [DisposisiController::class, 'index'])->name('disposisi');
+Route::get('/disposisi/show/{id}', [DisposisiController::class, 'show']);
+    //tanggapan
+// Route::resource('tanggapan', 'TanggapanController');
+Route::get('/tanggapan/show/{id}', [TanggapanController::class, 'show']);
+Route::post('/tanggapan/store', [TanggapanController::class, 'store']);
+
+});
+
+//hak akses untuk hkt
+Route::group(['middleware' => 'admin_hkt'], function() {
+    // surattugasp
+Route::get('/surat_tugasp', [SurattugaspController::class, 'index'])->name('surattugasp');
+Route::get('/surat_tugasp/cetak/{id}', [SurattugaspController::class, 'cetak']);
+
+// surattugask
+Route::get('/surat_tugask', [SurattugaskController::class, 'index'])->name('surattugask');
+Route::get('/surat_tugask/cetak/{id}', [SurattugaskController::class, 'cetak']);
+
+});
+
+//hak akses untuk keuangan
+Route::group(['middleware' => 'admin_keuangan'], function() {
+    // keuangan
+Route::get('/keuangan', [KeuanganController::class, 'index'])->name('keuangan');
+Route::get('/keuangan/show/{id}', [KeuanganController::class, 'show'])->name('keuangan.show');
+Route::get('/keuangan/show/{id}/delete', [KeuanganController::class, 'destroy'])->name('keuangan.destroy');
+Route::get('/keuangan/add/{id}', [KeuanganController::class, 'add'])->name('keuangan.add');
+Route::post('/keuangan/store', [KeuanganController::class, 'store']);
+Route::get('/keuangan/cetak/{id}', [KeuanganController::class, 'cetak']);
+// keuangank
+Route::get('/keuangank', [KeuangankController::class, 'index'])->name('keuangank');
+Route::get('/keuangank/tampil/{id}', [KeuangankController::class, 'tampil'])->name('keuangank.tampil');
+Route::get('/keuangank/show/{id}', [KeuangankController::class, 'show'])->name('keuangank.show');
+Route::get('/keuangank/show/{id}/delete', [KeuangankController::class, 'destroy'])->name('keuangank.destroy');
+Route::get('/keuangank/add/{id}', [KeuangankController::class, 'add'])->name('keuangank.add');
+Route::post('/keuangank/store', [KeuangankController::class, 'store']);
+Route::get('/keuangank/cetak/{id}', [KeuangankController::class, 'cetak']);
+});

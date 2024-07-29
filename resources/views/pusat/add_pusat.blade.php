@@ -27,14 +27,14 @@
                 @enderror
             </div> -->
             
-            <div class="form-group">
+            <!-- <div class="form-group">
             <label>User</label>
-            <select name="user_id" class="form-control" >
+            <select name="users_id" class="form-control" >
             <option value="" >- Pilih -</option>
             @foreach ($users as $item)
             <option value="{{ $item->id }}" >{{ $item->role_user }}</option>
             @endforeach
-            </select> </div>
+            </select> </div> -->
             <!-- <div class="text-danger">
                 @error('name')
                 {{ $message }}
@@ -64,9 +64,9 @@
         <div class="form-group">
             <label>Tanggal Pergi</label> 
             <div> </div>
-            <input type='date' name='tgl_pergi' class="form-control" value="{{ old('tgl_pergi') }}">
+            <input type='date' name='tanggal_pergi' class="form-control" value="{{ old('tanggal_pergi') }}">
             <div class="text-danger">
-                @error('tgl_pergi')
+                @error('tanggal_pergi')
                 {{ $message }}
                 @enderror
             </div>
@@ -75,9 +75,9 @@
         <div class="form-group">
             <label>Tanggal Pulang</label> 
             <div> </div>
-            <input type='date' name='tgl_pulang' class="form-control" value="{{ old('tgl_pulang') }}">
+            <input type='date' name='tanggal_pulang' class="form-control" value="{{ old('tanggal_pulang') }}">
             <div class="text-danger">
-                @error('tgl_pulang')
+                @error('tanggal_pulang')
                 {{ $message }}
                 @enderror
             </div>
@@ -86,13 +86,23 @@
         <div class="form-group">
             <label>Lampiran Surat</label> 
             <div> </div>
-            <input type='file' name='lampiran_surat' class="form-control" value="{{ old('lampiran_surat') }}">
+            <input type='file' name='lampiran_undangan' class="form-control" value="{{ old('lampiran_undangan') }}">
             <div class="text-danger">
-                @error('lampiran_surat')
+                @error('lampiran_undangan')
                 {{ $message }}
                 @enderror
             </div>
         </div>
+
+        <!-- <div class="form-group">
+            <label>Status Disposisi</label>
+            <input name='status_disposisi' class="form-control" value="{{ old('status_disposisi') }}">
+            <div class="text-danger">
+                @error('status_disposisi')
+                {{ $message }}
+                @enderror
+            </div>
+        </div> -->
         
         <div class="form-group">
             <button class="btn btn-primary btn-sm">Simpan</button>

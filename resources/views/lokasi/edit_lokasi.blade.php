@@ -26,7 +26,7 @@
                 @error('besaran_lumpsum')
                 {{ $message }}
                 @enderror
-            </div>
+            </div>  </div>
             
         
         <div class="form-group">

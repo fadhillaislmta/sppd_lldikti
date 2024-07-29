@@ -32,7 +32,7 @@
                     <td>{{ $us->role_user}}</td>   
                     <td>
                         <div class="d-flex">
-                            <a href="/user/edit/{{ $us->id }}" class="btn btn-sm btn-primary mr-2">Edit</a>
+                            <!-- <a href="/user/edit/{{ $us->id }}" class="btn btn-sm btn-primary mr-2">Edit</a> -->
                             <a href="{{Route('user.destroy',[$us->id])}}" display="inline" class="btn btn-danger" onclick="return confirm('Yakin ingin menghapus?');">Hapus</a>
                             <!-- <form action="{{Route('karyawan.destroy',[$us->id])}}" method="post">
                                 @csrf

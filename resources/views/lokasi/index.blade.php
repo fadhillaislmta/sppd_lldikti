@@ -27,7 +27,7 @@
                 <tr>
                     <td scope="row">{{ $loop->iteration }}</td>
                     <td>{{ $lok->nama_kota}}</td>
-                    <td>{{ $lok->besaran_lumpsum}}</td>
+                    <td>@currency ($lok->besaran_lumpsum)</td>
    
                     <td>
                         <div class="d-flex">

@@ -22,5 +22,23 @@ class Karyawan extends Model
     {
         DB::table('karyawan')->insert($data);
     }
+    public function kantor()
+    {
+        return $this->belongsToMany(Kantor::class, 'karyawan_kantor', 'karyawan_id', 'kantor_id');
+    }
+
+    public function disposisi()
+    {
+        return $this->belongsToMany(Disposisi::class, 'karyawan_disposisi', 'karyawan_id', 'disposisi_id');
+    }
+
+    public function tanggapan()
+    {
+        return $this->belongsToMany(Disposisi::class, 'karyawan_disposisi', 'karyawan_id', 'disposisi_id');
+    }
+    // public function karyawan_kantor(){
+    //     return $this->hasmany(Karyawan_Kantor::class, 'karyawan_id','id');
+    // }
+
 
 }

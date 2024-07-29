@@ -19,8 +19,6 @@ class CreateDisposisiTable extends Migration
             $table->foreign('users_id')->references('id')->on('users')->onDelete('cascade');
             $table->bigInteger('pusat_id')->unsigned()->index();
             $table->foreign('pusat_id')->references('id')->on('pusat')->onDelete('cascade');
-            $table->bigInteger('karyawan_id')->unsigned()->index();
-            $table->foreign('karyawan_id')->references('id')->on('karyawan')->onDelete('cascade');
             $table->timestamps();
         });
     }

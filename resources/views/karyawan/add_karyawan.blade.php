@@ -56,9 +56,16 @@
             <div> </div>
             <select name='divisi' class="form-control" aria-label="Default select example" value="{{ old('divisi') }}">
             <option selected>Pilih Divisi</option>
+            <option value="Pimpinan">Pimpinan</option>
             <option value="HKT">HKT</option>
             <option value="SIK">SIK</option>
             <option value="ICT">ICT</option>
+            <option value="Akademik & Kemahasiswaan">Akademik & Kemahasiswaan</option>
+            <option value="Perencanaan & Penganggaran">Perencanaan & Penganggaran</option>
+            <option value="SDPT">SDPT</option>
+            <option value="SIK">SIK</option>
+            <option value="Sarana dan Prasarana">Sarana dan Prasarana</option>
+            <option value="TU dan BMN">TU dan BMN</option>
             </select>
             <div class="text-danger">
                 @error('divisi')

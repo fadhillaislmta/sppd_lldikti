@@ -100,7 +100,7 @@ class UserController extends Controller
         $affected = DB::table('users')
               ->where('id', $id)
               ->update(['email' => $request->email,
-                        'password' => $request->password,
+                        'password' => Hash::make(request()->password),
                         'role_user' => $request->role_user
                         ]);
 

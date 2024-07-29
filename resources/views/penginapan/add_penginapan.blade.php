@@ -19,7 +19,7 @@
                 @error('nama_penginapan')
                 {{ $message }}
                 @enderror
-            </div>
+            </div>  </div>
         
         <div class="form-group">
             <button class="btn btn-primary btn-sm">Simpan</button>

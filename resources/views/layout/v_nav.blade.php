@@ -19,6 +19,7 @@
         <span>Dashboard</span></a>
 </li>
 
+@if (auth()->user()->role_user=='Admin')
 <!-- Divider -->
 <hr class="sidebar-divider">
  <!-- Nav Item - Pages Collapse Menu -->
@@ -57,19 +58,20 @@
         <div class="bg-white py-2 collapse-inner rounded">
             <!-- <h6 class="collapse-header">Custom Components:</h6> -->
             <a class="collapse-item" href="/pusat">Pusat</a>
-            <a class="collapse-item" href="cards.html">Kantor</a>
+            <a class="collapse-item" href="/kantor">Kantor</a>
         </div>
     </div>
 </li>
 
+@elseif (auth()->user()->role_user=='Pimpinan')
  <!-- Nav Item - Charts -->
  <li class="nav-item">
-    <a class="nav-link" href="charts.html">
+    <a class="nav-link" href="/disposisi">
         <i class="fas fa-fw fa-chart-area"></i>
         <span>Disposisi</span></a>
 </li>
 
-
+@elseif (auth()->user()->role_user=='Admin HKT')
 <li class="nav-item">
     <a class="nav-link collapsed" href="#" data-toggle="collapse" data-target="#collapsePages" 
         aria-expanded="true" aria-controls="collapsePages">
@@ -79,12 +81,13 @@
     <div id="collapsePages" class="collapse" aria-labelledby="headingPages" data-parent="#accordionSidebar">
         <div class="bg-white py-2 collapse-inner rounded">
             <!-- <h6 class="collapse-header">Custom Components:</h6> -->
-            <a class="collapse-item" href="buttons.html">Pusat</a>
-            <a class="collapse-item" href="cards.html">Kantor</a>
+            <a class="collapse-item" href="/surat_tugasp">Pusat</a>
+            <a class="collapse-item" href="/surat_tugask">Kantor</a>
         </div>
     </div>
 </li>
 
+@elseif (auth()->user()->role_user=='Admin Keuangan')
 <!-- Nav Item - Utilities Collapse Menu -->
 <li class="nav-item">
     <a class="nav-link collapsed" href="#" data-toggle="collapse" data-target="#collapseUtilities"
@@ -96,13 +99,22 @@
         data-parent="#accordionSidebar">
         <div class="bg-white py-2 collapse-inner rounded">
             <!-- <h6 class="collapse-header">Custom Utilities:</h6> -->
-            <a class="collapse-item" href="utilities-color.html">Pusat</a>
-            <a class="collapse-item" href="utilities-border.html">Kantor</a>
+            <a class="collapse-item" href="/keuangan">Pusat</a>
+            <a class="collapse-item" href="/keuangank">Kantor</a>
             <!-- <a class="collapse-item" href="utilities-animation.html">Animations</a>
             <a class="collapse-item" href="utilities-other.html">Other</a> -->
         </div>
     </div>
 </li>
+@endif
+
+
+
+
+
+
+
+
 
 <!-- Divider -->
 <hr class="sidebar-divider">
@@ -138,9 +150,9 @@
 
 <!-- Nav Item - Tables -->
 <li class="nav-item">
-    <a class="nav-link" href="tables.html">
+    <a class="nav-link" href="/profil">
         <i class="fas fa-fw fa-table"></i>
-        <span>Profil</span></a>
+        <span>Ubah Password</span></a>
 </li>
 
 <!-- Divider -->

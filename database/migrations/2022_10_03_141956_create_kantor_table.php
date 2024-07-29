@@ -19,8 +19,6 @@ class CreateKantorTable extends Migration
             $table->foreign('lokasi_id')->references('id')->on('lokasi')->onDelete('cascade');
             $table->bigInteger('users_id')->unsigned()->index();
             $table->foreign('users_id')->references('id')->on('users')->onDelete('cascade');
-            $table->bigInteger('karyawan_id')->unsigned()->index();
-            $table->foreign('karyawan_id')->references('id')->on('karyawan')->onDelete('cascade');
             $table->string('judul_surat');
             $table->date('tanggal_pergi');
             $table->date('tanggal_pulang');
